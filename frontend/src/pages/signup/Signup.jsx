@@ -76,7 +76,7 @@ const SignUp = () => {
 
 					<GenderCheckbox onCheckboxChange = {handleCheckboxChange} selectedGender = {inputs.gender}/>
 
-					<Link to={'http://localhost:2000/login'} className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block' href='#'>
+					<Link to={'https://chatterbox-chatapp-ycuj.onrender.com/login'} className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block' href='#'>
 						Already have an account?
 					</Link >
 

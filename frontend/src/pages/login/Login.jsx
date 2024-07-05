@@ -43,7 +43,7 @@ const Login = () => {
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</div>
-					<Link to={'http://localhost:2000/signup'} className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block'>
+					<Link to={'https://chatterbox-chatapp-ycuj.onrender.com/signup'} className='text-sm  hover:underline hover:text-blue-600 mt-2 inline-block'>
 						{"Don't"} have an account?
 					</Link>
 
