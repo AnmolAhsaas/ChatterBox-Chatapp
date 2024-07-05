@@ -59,7 +59,8 @@ export const login = async (req, res) => {
         const {username, password} = req.body;
     
         const user = await User.findOne({username})
-    
+        const {gender, avatar} = user
+
         if(!user){
             return res.status(400).json({
                 error: "user not found"
@@ -79,6 +80,8 @@ export const login = async (req, res) => {
             _id: user._id,
             username: user.username,
             fullName: user.fullName,
+            gender,
+            avatar,
             accessToken: token
         })
     } catch (error) {
