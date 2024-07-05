@@ -93,7 +93,7 @@ export const logout = (req, res) => {
     try {
         if(!req.cookies || !req.cookies.jwt === undefined){
             return res.status(401).json({
-                message: "No User logged In"
+                error: "No User logged In"
             })
         }
         res.cookie("jwt", "", {maxAge: 0});
@@ -103,7 +103,7 @@ export const logout = (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.status(500).json({
-            message: "logout function Internal error"
+            error: "logout function Internal error"
         })
     }
 }

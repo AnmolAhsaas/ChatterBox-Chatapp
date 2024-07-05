@@ -8,7 +8,7 @@ export const getUsersSidebar = async (req, res) => {
         if(!filteredUsers){
             console.log("filtered User list not found for sidebar");
             return res.status(401).json({
-                message: "filtered users not found in database"
+                error: "filtered users not found in database"
             })
         }
 
@@ -17,7 +17,8 @@ export const getUsersSidebar = async (req, res) => {
         })
     } catch (error) {
         console.log("error in getUsersSidebar function: ", error.message);
-    }
-
-    
+        res.status(500).json({
+            error: "Internal Server Error"
+        })
+    }  
 }

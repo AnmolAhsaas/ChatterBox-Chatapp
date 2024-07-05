@@ -53,7 +53,8 @@ export const sendMessage = async (req, res) => {
             message: "new message pushed into conversation",
             sentMessage: newMessage.message,
             sender: senderFullName,
-            reciever: recieverFullName
+            reciever: recieverFullName,
+            newMessage
         })
     } catch (error) {
         console.log("Error in send Message Function : ", error.message);
@@ -82,8 +83,13 @@ export const getMessage = async (req, res) => {
 
         if(!convers){
             console.log("The users did not have any past conversations");
-            return res.status(401).json({
-                message: "No conversation exists now"
+            return res.status(201).json({
+                message: "Conversation among users fetched successfully",
+                sender: senderFullName,
+                recieverFullName: recieverFullName,
+                senderId,
+                recieverId,
+                conversationMessages: []
             })
         }
 
