@@ -1,6 +1,7 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import { generateAccessToken } from "../utils/jwt.utils.js";
+import { io } from "../socket/socket.js";
 
 export const signup = async (req, res) => {
     try {
@@ -35,6 +36,8 @@ export const signup = async (req, res) => {
         
         await newUser.save()
         const token = await generateAccessToken(newUser._id, res);
+
+        io.emit("newUser", newUser._id);
 
         return res.status(201).json({
             message: "user created successfully",
